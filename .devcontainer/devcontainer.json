@@ -1,0 +1,26 @@
+{
+  "name": "CppDevContainer",
+  "image": "ghcr.io/monamimani-builds/cpp-devcontainer",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "cmake.configureOnOpen": false,
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "github.vscode-github-actions",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "josetr.cmake-language-support-vscode"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git": {},
+    "ghcr.io/devcontainers/features/git-lfs": {},
+    "ghcr.io/devcontainers/features/powershell": {},
+    "ghcr.io/devcontainers-community/features/llvm": {}
+  }
+}
