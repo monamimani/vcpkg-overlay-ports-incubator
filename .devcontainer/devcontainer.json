@@ -16,11 +16,19 @@
         "josetr.cmake-language-support-vscode"
       ]
     },
+    "codespaces": {
+      "repositories": {
+        "monamimani/vcpkg-registry": {
+          "permissions": "write-all"
+        }
+      }
+    }
+  },
   "features": {
     "ghcr.io/devcontainers/features/git": {},
     "ghcr.io/devcontainers/features/git-lfs": {},
     "ghcr.io/devcontainers/features/powershell": {},
     "ghcr.io/devcontainers-community/features/llvm": {}
   },
-  "postCreateCommand": "git submodule update --init --recursive"
+  "postCreateCommand": "git submodule update --recursive --remote"
 }
