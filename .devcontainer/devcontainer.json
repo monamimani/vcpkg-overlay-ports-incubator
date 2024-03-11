@@ -16,14 +16,6 @@
         "josetr.cmake-language-support-vscode"
       ]
     },
-    "codespaces": {
-      "repositories": {
-        "monamimani-builds/vcpkg-registry": {
-          "permissions": "write-all"
-        }
-      }
-    }
-  },
   "features": {
     "ghcr.io/devcontainers/features/git": {},
     "ghcr.io/devcontainers/features/git-lfs": {},
