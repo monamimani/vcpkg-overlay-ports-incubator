@@ -19,9 +19,7 @@
     "codespaces": {
       "repositories": {
         "monamimani-builds/vcpkg-registry": {
-          "permissions": {
-            "contents": "write"
-          }
+          "permissions": "write-all"
         }
       }
     }
