@@ -15,6 +15,15 @@
         "ms-vscode.cpptools-extension-pack",
         "josetr.cmake-language-support-vscode"
       ]
+    },
+    "codespaces": {
+      "repositories": {
+        "monamimani-builds/vcpkg-registry": {
+          "permissions": {
+            "contents": "write"
+          }
+        }
+      }
     }
   },
   "features": {
