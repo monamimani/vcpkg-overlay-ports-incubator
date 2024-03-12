@@ -1,0 +1,198 @@
+{
+  "$schema": "https://cmake.org/cmake/help/v3.28/_downloads/3e2d73bff478d88a7de0de736ba5e361/schema.json",
+  "version": 8,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "Preset-Name-Template",
+      "description": "%Platform%-%Compiler%-%Generator%-[%OtherConfigOptions,...%-%BuildType%-%BuildKind%",
+      "hidden": true
+    },
+    {
+      "name": "Common",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/_Out/build/${presetName}",
+      "installDir": "${sourceDir}/_Out/install/${presetName}",
+      "warnings": {
+        "uninitialized": true,
+        "dev": true,
+        "deprecated": true
+      },
+      "trace": {
+        "mode": "on",
+        "format": "human"
+      },
+      "cacheVariables": {}
+    },
+    {
+      "name": "Windows",
+      "hidden": true,
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "ENABLE_CPPCHECK_DEFAULT": "FALSE",
+        "ENABLE_CLANG_TIDY_DEFAULT": "FALSE"
+      }
+    },
+    {
+      "name": "Linux",
+      "hidden": true,
+      "cacheVariables": {},
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
+          "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
+        }
+      }
+    },
+    {
+      "name": "Ninja",
+      "hidden": true,
+      "generator": "Ninja",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "toolset": {
+        "value": "x64",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "Msvc",
+      "hidden": true,
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_CXX_FLAGS": "/EHsc /MP",
+        "CMAKE_C_FLAGS": "/EHsc /MP"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Clang",
+      "hidden": true,
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/CMake/toolchains/linux_clang.chainload.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-linux-clang-libcxx"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "intelliSenseMode": "linux-clang-x64"
+        }
+      }
+    },
+    {
+      "name": "Gcc",
+      "hidden": true,
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_CXX_FLAGS": "",
+        "CMAKE_C_FLAGS": "",
+        "VCPKG_TARGET_TRIPLET": "x64-linux"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "intelliSenseMode": "linux-gcc-x64"
+        }
+      }
+    },
+    {
+      "name": "Linux-Clang-Ninja-Debug",
+      "inherits": [
+        "Common",
+        "Linux",
+        "Clang",
+        "Ninja"
+      ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "Linux-Clang-Ninja-Release",
+      "inherits": [
+        "Common",
+        "Linux",
+        "Clang",
+        "Ninja"
+      ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "Windows-Msvc-Ninja-Debug",
+      "inherits": [
+        "Common",
+        "Windows",
+        "Msvc",
+        "Ninja"
+      ],
+      "cacheVariables": {}
+    },
+    {
+      "name": "Windows-Msvc-Ninja-Release",
+      "inherits": [
+        "Common",
+        "Windows",
+        "Msvc",
+        "Ninja"
+      ],
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Linux-Clang-Ninja-Debug",
+      "configurePreset": "Linux-Clang-Ninja-Debug"
+    },
+    {
+      "name": "Linux-Clang-Ninja-Release",
+      "configurePreset": "Linux-Clang-Ninja-Release"
+    },
+    {
+      "name": "Windows-Msvc-Ninja-Debug",
+      "configurePreset": "Windows-Msvc-Ninja-Debug"
+    },
+    {
+      "name": "Windows-Msvc-Ninja-Release",
+      "configurePreset": "Windows-Msvc-Ninja-Release"
+    }
+  ],
+  "testPresets": [],
+  "packagePresets": [],
+  "workflowPresets": []
+}
