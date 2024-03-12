@@ -1,17 +1,20 @@
 {
   "folders": [
-	{
-		"path": "."
-	},
-	{
-		"path": "../../usr/local/vcpkg"
-	},
-	{
-		"path": "../../usr/local/vcpkg-downloads"
-	},
-	{
-		"path": "../../home/vscode/.vcpkg"
-	}
-],
+    {
+      "path": "."
+    },
+    {
+      "path": "../../usr/local/vcpkg"
+    },
+    {
+      "path": "../../usr/local/vcpkg-downloads"
+    },
+    {
+      "path": "../../home/vscode/.vcpkg"
+    },
+    {
+      "path": "../../home"
+    }
+  ],
   "settings": {}
 }

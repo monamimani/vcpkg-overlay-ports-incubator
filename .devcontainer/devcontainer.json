@@ -27,10 +27,11 @@
     }
   },
   "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/git": {},
     "ghcr.io/devcontainers/features/git-lfs": {},
     "ghcr.io/devcontainers/features/powershell": {},
     "ghcr.io/devcontainers-community/features/llvm": {}
   },
-  "postCreateCommand": "git submodule update --init --recursive --remote"
+  // "postCreateCommand": "git submodule update --init --recursive --remote"
 }
