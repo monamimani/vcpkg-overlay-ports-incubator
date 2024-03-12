@@ -30,5 +30,5 @@
     "ghcr.io/devcontainers/features/powershell": {},
     "ghcr.io/devcontainers-community/features/llvm": {}
   },
-  "postCreateCommand": "git submodule update --recursive --remote"
+  "postCreateCommand": "git submodule update --recursive --remote --merge"
 }
