@@ -10,7 +10,7 @@
       "path": "../../usr/local/vcpkg-downloads"
     },
     {
-      "path": "../../home/vscode/.vcpkg"
+      "path": "../../home/vscode/.cache/vcpkg"
     },
     {
       "path": "../../home"

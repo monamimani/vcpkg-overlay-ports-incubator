@@ -3,10 +3,18 @@
     "kind": "builtin",
     "baseline": "3f966cf6a8654a0bc067738bcb95d489e197ad68"
   },
+  "registries": [
+    {
+      "kind": "git",
+      "repository": "https://github.com/monamimani/vcpkg-registry",
+      "baseline": "5fa43f0f35a2e302e74bccc4a961c641e10babba",
+      "packages": []
+    }
+  ],
   "overlay-triplets": [
-    "./vcpkg-registry/triplets"
+    "vcpkg-registry/triplets"
   ],
   "overlay-ports": [
-    "./vcpkg-registry/ports"
+    "vcpkg-registry/ports"
   ]
 }
