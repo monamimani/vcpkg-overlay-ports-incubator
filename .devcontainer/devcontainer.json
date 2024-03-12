@@ -19,7 +19,9 @@
     "codespaces": {
       "repositories": {
         "monamimani/vcpkg-registry": {
-          "permissions": "write-all"
+          "permissions": {
+            "contents": "write"
+          }
         }
       }
     }
@@ -30,5 +32,5 @@
     "ghcr.io/devcontainers/features/powershell": {},
     "ghcr.io/devcontainers-community/features/llvm": {}
   },
-  "postCreateCommand": "git submodule update --recursive --remote --merge"
+  "postCreateCommand": "git submodule update --init --recursive --remote"
 }
